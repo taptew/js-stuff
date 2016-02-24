@@ -1,0 +1,23 @@
+{
+  "name": "niche-app",
+  "authors": [
+    "tapantewari@gmail.com"
+  ],
+  "description": "real nicher angular app",
+  "main": "app/index.html",
+  "moduleType": [],
+  "keywords": [
+    "bower",
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
