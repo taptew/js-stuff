@@ -19,5 +19,15 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "jquery": "^2.2.1",
+    "underscore": "^1.8.3",
+    "restangular": "^1.5.2"
+  },
+  "analytics": false
 }
