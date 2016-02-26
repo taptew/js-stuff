@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-injector');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -23,6 +24,28 @@ module.exports = function(grunt) {
                 'bower_components/underscore/underscore.js',
                 'test/**/*Spec.js'
             ]
+        },
+
+        injector: {
+            bower : {
+                options : {
+                    starttag : '<!-- bower: -->',
+                    endtag : '<!-- endbower -->',
+                    addRootSlash : false // depends on your project
+                },
+                files : {
+                    'source/index.html' : [ 'bower.json' ]
+                }
+            },
+            app : {
+                options : {
+                    addRootSlash : false, // depends on your project
+                    relative : true // depends on your project
+                },
+                files : {
+                    'index.html' : [ 'ordered application js files', 'another file', '...' ],
+                }
+            }
         },
 
         karma: {

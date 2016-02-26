@@ -5,7 +5,7 @@
   "description": "",
   "main": "app/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "author": "tapan tewari",
   "license": "UNLICENSED",
@@ -18,16 +18,14 @@
     "grunt-contrib-uglify": "^0.11.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
+    "grunt-injector": "^0.6.1",
     "grunt-jsdoc": "^1.1.0",
     "grunt-karma": "^0.12.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.21",
     "karma-jasmine": "^0.3.7",
     "karma-phantomjs-launcher": "^1.0.0",
+    "mongoose": "^4.4.5",
     "phantomjs-prebuilt": "^2.1.4"
-  },
-  "scripts": {
-    "postinstall": "bower install"
   }
-
 }
