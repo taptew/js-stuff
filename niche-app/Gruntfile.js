@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -33,6 +34,24 @@ module.exports = function(grunt) {
                         'source/**/*.js'
                     ]
                 }
+            },
+            'dist': {
+                'options': {
+                    'configFile': 'karma.conf.js',
+                    'files': [
+                        '<%= meta.jsFilesForTesting %>',
+                        'dist/<%= pkg.distname %>-<%= pkg.version %>.js'
+                    ]
+                }
+            },
+            'minified': {
+                'options': {
+                    'configFile': 'karma.conf.js',
+                    'files': [
+                        '<%= meta.jsFilesForTesting %>',
+                        'dist/<%= pkg.distname %>-<%= pkg.version %>.min.js'
+                    ]
+                }
             }
         },
 
@@ -56,11 +75,24 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.distname %>-<%= pkg.version %>.min.js': ['dist/<%= pkg.distname %>-<%= pkg.version %>.js']
                 }
             }
+        },
+
+        jsdoc: {
+            'src': ['source/**/*.js'],
+            'options': {
+                'destination': 'doc'
+            }
         }
     });
 
     grunt.registerTask('test', ['karma:development']);
-    grunt.registerTask('build', ['jshint', 'test', 'concat', 'uglify']);
-    
-
+    grunt.registerTask('build', [
+        'jshint',
+        'karma:development',
+        'concat',
+        'karma:dist',
+        'uglify',
+        'karma:minified',
+        'jsdoc'
+    ]);
 };
