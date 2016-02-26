@@ -3,11 +3,15 @@
  */
 module.exports = function(grunt) {
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.initConfig({
-        'meta': {
+        pkg: grunt.file.readJSON('package.json'),
+
+        meta: {
             'jsFilesForTesting': [
                 'bower_components/jquery/dist/jquery.js',
                 'bower_components/angular/angular.js',
@@ -20,7 +24,7 @@ module.exports = function(grunt) {
             ]
         },
 
-        'karma': {
+        karma: {
             'development': {
                 'configFile': 'karma.conf.js',
                 'options': {
@@ -32,8 +36,26 @@ module.exports = function(grunt) {
             }
         },
 
-        'jshint': {
+        jshint: {
             'beforeconcat': ['source/**/*.js']
+        },
+
+        concat: {
+            'dist': {
+                'src': ['source/**/*.js'],
+                'dest': 'dist/<%= pkg.distname %>-<%= pkg.version %>.js'
+            }
+        },
+
+        uglify: {
+            'options': {
+                'mangle': false
+            },
+            'dist': {
+                'files': {
+                    'dist/<%= pkg.distname %>-<%= pkg.version %>.min.js': ['dist/<%= pkg.distname %>-<%= pkg.version %>.js']
+                }
+            }
         }
     });
 

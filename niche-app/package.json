@@ -1,6 +1,7 @@
 {
-  "name": "y",
+  "name": "Niche-App",
   "version": "1.0.0",
+  "distname": "niche-app",
   "description": "",
   "main": "app/index.html",
   "scripts": {
