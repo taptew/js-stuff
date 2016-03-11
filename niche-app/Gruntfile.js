@@ -3,12 +3,16 @@
  */
 module.exports = function(grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-injector');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-bowercopy');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -23,27 +27,54 @@ module.exports = function(grunt) {
                 'bower_components/restangular/dist/restangular.js',
                 'bower_components/underscore/underscore.js',
                 'test/**/*Spec.js'
+            ],
+
+            'jsForApp': [
+                'source/js/**/*Module.js',
+                'source/js/**/*Services.js',
+                'source/js/**/*Controllers.js',
+                'source/js/app.js'
+            ],
+            'cssForApp': [
+                'source/css/**/*.css'
             ]
         },
 
+        clean: {
+            dist: ['dist/**/*']
+        },
+
+
         injector: {
-            bower : {
+            development : {
                 options : {
-                    starttag : '<!-- bower: -->',
-                    endtag : '<!-- endbower -->',
-                    addRootSlash : false // depends on your project
+                    relative: false,
+                    addRootSlash: false
                 },
-                files : {
-                    'source/index.html' : [ 'bower.json' ]
+                files: {
+                    'source/index.html': ['<%= meta.jsForApp %>', '<%= meta.cssForApp %>']
                 }
             },
-            app : {
+            development_bower : {
                 options : {
-                    addRootSlash : false, // depends on your project
-                    relative : true // depends on your project
+                    cwd: 'source',
+                    relative: false,
+                    addRootSlash: false,
+                    bowerPrefix: 'bower:'
                 },
-                files : {
-                    'index.html' : [ 'ordered application js files', 'another file', '...' ],
+                files: {
+                    'source/index.html': ['bower.json']
+                }
+            },
+
+            dist: {
+                options : {
+                    relative: true,
+                    min: true,
+                    bowerPrefix: 'bower:'
+                },
+                files: {
+                    'dist/index.html': ['dist/<%= pkg.distname %>-<%= pkg.version %>.min.js', '<%= meta.cssForApp %>', 'bower.json']
                 }
             }
         },
@@ -54,7 +85,7 @@ module.exports = function(grunt) {
                 'options': {
                     'files': [
                         '<%= meta.jsFilesForTesting %>',
-                        'source/**/*.js'
+                        '<%= meta.jsForApp %>'
                     ]
                 }
             },
@@ -84,17 +115,17 @@ module.exports = function(grunt) {
 
         concat: {
             'dist': {
-                'src': ['source/**/*.js'],
+                'src': ['<%= meta.jsForApp %>'],
                 'dest': 'dist/<%= pkg.distname %>-<%= pkg.version %>.js'
             }
         },
 
         uglify: {
-            'options': {
+            options: {
                 'mangle': false
             },
-            'dist': {
-                'files': {
+            dist: {
+                files: {
                     'dist/<%= pkg.distname %>-<%= pkg.version %>.min.js': ['dist/<%= pkg.distname %>-<%= pkg.version %>.js']
                 }
             }
@@ -105,17 +136,37 @@ module.exports = function(grunt) {
             'options': {
                 'destination': 'doc'
             }
+        },
+
+        copy: {
+            dist: {
+                files: [
+                    { expand: true, cwd: "source/", src: ['**/*.html'], dest: 'dist/' }
+                ]
+            }
         }
+
     });
 
     grunt.registerTask('test', ['karma:development']);
+    grunt.registerTask('dev', [
+        'jshint',
+        'karma:development',
+        'injector:development_bower',
+        'injector:development'
+    ]);
+
     grunt.registerTask('build', [
+        'clean:dist',
         'jshint',
         'karma:development',
         'concat',
         'karma:dist',
         'uglify',
         'karma:minified',
-        'jsdoc'
+        'jsdoc',
+        'copy:dist',
+        'injector:dist',
+        'bowercopy:dist'
     ]);
 };
