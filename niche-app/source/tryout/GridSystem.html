@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- disable scaling if needed
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    -->
+    <title>Grid System</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--link rel="stylesheet" href="custom.css"-->
+</head>
+<body>
+
+<!-- fixed width responsive container -->
+<h2>Container</h2>
+<div class="container">
+    <p class="lead">12 column layout</p>
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-1"><label>Full name</label></div>
+        <div class="col-sm-6 col-md-10"><input name="full_name"/></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-1"><label>Street</label></div>
+        <div class="col-sm-12 col-md-2"><input name="street1"/></div>
+        <div class="col-sm-12 col-md-2"><input name="street2"/></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-1"><label>City</label></div>
+        <div class="col-sm-6 col-md-10 col-lg-2"><input name="city"/></div>
+
+        <div class="col-sm-12 col-md-2 col-lg-1"><label>State</label></div>
+        <div class="col-sm-6 col-md-10 col-lg-2"><input name="state"/></div>
+
+        <div class="col-sm-12 col-md-2 col-lg-1"><label>Zip</label></div>
+        <div class="col-sm-6 col-md-10 col-lg-2"><input name="zip"/></div>
+    </div>
+
+    <p class="lead">Add '.clearfix' for specific view ports</p>
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3 <br>
+            Resize your viewport or check it out on your phone for an example.</div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix visible-xs-block"></div>
+
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    </div>
+
+    <p class="lead">Add column offset to specific view ports. Override offsets from lower grid tiers with .col-*-offset-0 </p>
+    <div class="row">
+        <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+        <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">
+            .col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+    </div>
+    <p class="lead">Nesting columns</p>
+    <div class="row">
+        <div class="col-sm-6">
+            Level 1: .col-sm-9
+            <div class="row">
+                <div class="col-xs-8 col-sm-6">
+                    Level 2: .col-xs-8 .col-sm-6
+                </div>
+                <div class="col-xs-4 col-sm-6">
+                    Level 2: .col-xs-4 .col-sm-6
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="lead">Column ordering (e.g. .col-md-push-* and .col-md-pull-*) </p>
+    <div class="row">
+        <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+        <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+    </div>
+</div>
+<!-- full with responsive container -->
+<h2>Fluid container</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+    </div>
+</div>
+
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

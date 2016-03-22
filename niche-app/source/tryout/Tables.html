@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <title></title>
+</head>
+<body>
+<div style="padding:20px">
+    <p class="lead">Basic table</p>
+    <table class="table">
+        <tr>
+            <th>Index #</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td>John</td>
+            <td>200 Main St, Waltham MA</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>Jake</td>
+            <td>15 Perl Ave, Boston MA</td>
+        </tr>
+    </table>
+    <p class="lead">Condensed table</p>
+    <table class="table table-condensed">
+        <tr>
+            <th>Index #</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td>John</td>
+            <td>200 Main St, Waltham MA</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>Jake</td>
+            <td>15 Perl Ave, Boston MA</td>
+        </tr>
+    </table>
+    <p class="lead">Striped, Bordered, Hovered table</p>
+    <table class="table table-hover table-striped table-bordered">
+        <tr>
+            <th>Index #</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td>John</td>
+            <td>200 Main St, Waltham MA</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>Jake</td>
+            <td>15 Perl Ave, Boston MA</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>Jimmy</td>
+            <td>15 Bolton St, Newton MA</td>
+        </tr>
+    </table>
+
+    <p class="lead">Contextual classes in table</p>
+    <table class="table table-bordered">
+        <tr>
+            <th>Index #</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr class="success">
+            <th>1</th>
+            <td>John</td>
+            <td>200 Main St, Waltham MA</td>
+        </tr>
+        <tr class="active">
+            <th>3</th>
+            <td>Jimmy</td>
+            <td class="danger">missing!</td>
+        </tr>
+        <tr class="success">
+            <th>2</th>
+            <td>Jake</td>
+            <td>15 Perl Ave, Boston MA</td>
+        </tr>
+    </table>
+
+    <p class="lead">Responsive tables (<768px)</p>
+    <p>Add a horizontal scroll bar on smaller devices</p>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Index #</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            <tr class="success">
+                <th>1</th>
+                <td>John</td>
+                <td nowrap="nowrap">200 Mainstream-mead St, Waltham MA</td>
+            </tr>
+            <tr class="active">
+                <th>3</th>
+                <td>Jimmy</td>
+                <td class="danger">missing!</td>
+            </tr>
+            <tr class="success">
+                <th>2</th>
+                <td>Jake</td>
+                <td>15 Perl Ave, Boston MA</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
