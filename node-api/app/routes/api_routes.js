@@ -2,7 +2,7 @@ var api_router = require('express').Router();
 var connection_pool = require('../utils/connection_pool');
 
 api_router.get('/author/', function(req, res) {
-    connection_pool.query('select * from author', function(err, rows, fields) {
+    connection_pool.query('select * from author limit 20', function(err, rows, fields) {
         if (err) {
             console.error('db error', err);
             res.status(400).json({
@@ -12,7 +12,7 @@ api_router.get('/author/', function(req, res) {
             return;
         }
 
-        console.log('db rows', rows);
+        console.log('db rows');
 
         res.status(200).json({
             'result' : rows,
@@ -72,7 +72,7 @@ api_router.get('/author/:author_id', function(req, res) {
             return;
         }
 
-        console.log('record found', result);
+        console.log('records found');
 
         res.status(200).json({
             'result' : result,
