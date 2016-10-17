@@ -1,0 +1,20 @@
+{
+  "name": "js-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "taptew",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bunyan": "^1.8.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "mongodb": "^2.1.10",
+    "underscore": "^1.8.3",
+    "underscore-node": "^0.1.2"
+  }
+}

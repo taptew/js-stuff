@@ -2,10 +2,10 @@
  * Created by tapan on 2/24/16.
  */
 
-describe('UserController', function() {
+describe('DummyController', function() {
     var scope, controller, httpBackend;
 
-    beforeEach(module('NicheApp'));
+    beforeEach(module('dummy-module'));
     beforeEach(inject(function($rootScope, $controller, $httpBackend) {
         scope = $rootScope;
         controller = $controller;
@@ -14,10 +14,10 @@ describe('UserController', function() {
 
     it('should query the webservice', function() {
         // which http call and the response
-        httpBackend.expectGET('/users').respond('[{"name": "First user"}, {"name": "Second user"}]');
+        httpBackend.expectGET('/dummies').respond('[{"name": "First user"}, {"name": "Second user"}]');
 
         // starting the controller
-        controller('UserController', {'$scope': scope});
+        controller('DummyController', {'$scope': scope});
 
         // response to all http requests
         httpBackend.flush();
@@ -26,7 +26,7 @@ describe('UserController', function() {
         scope.$apply();
 
         // expect the controller to put a right value onto the scope
-        expect(scope.user_count).toEqual(2);
+        expect(scope.count).toEqual(2);
     });
 
 });

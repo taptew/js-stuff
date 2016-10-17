@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <title></title>
+</head>
+<body>
+<div style="padding:20px">
+    <h2>
+        <small>Basic form</small>
+    </h2>
+    <p>All input, textarea, select elements with class .form-control are set <code>width:100%</code> by default.
+        Wrap labels and groups in .form-group for optimal spacing.</p>
+
+    <form>
+        <div class="form-group">
+            <label for="user_name">Full name</label>
+            <input type="text" class="form-control" id="user_name" placeholder="your full name"/>
+        </div>
+        <div class="form-group">
+            <label for="user_email">Email address</label>
+            <input type="email" class="form-control" id="user_email" placeholder="email address"/>
+        </div>
+        <div class="form-group">
+            <label for="user_pass">Password</label>
+            <input type="password" class="form-control" id="user_pass"/>
+        </div>
+        <div class="form-group">
+            <label for="user_confpass">Confirm password</label>
+            <input type="password" class="form-control" id="user_confpass"/>
+        </div>
+        <div class="form-group">
+            <label for="user_pic">Your picture</label>
+            <input type="file" class="form-control" id="user_pic"/>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="email_offers">Receive email offers
+            </label>
+        </div>
+    </form>
+
+    <h2>
+        <small>Inline form</small>
+    </h2>
+    <p>User .form-inline class for left aligned inline-block controls. <strong>This only applies to viewport that are >=
+        768px</strong></p>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="user_name">Full name</label>
+            <input type="text" class="form-control" id="user_name" placeholder="your full name"/>
+        </div>
+        <div class="form-group">
+            <label for="user_email">Email address</label>
+            <input type="email" class="form-control" id="user_email" placeholder="email address"/>
+        </div>
+        <div class="form-group">
+            <label for="user_pass">Password</label>
+            <input type="password" class="form-control" id="user_pass"/>
+        </div>
+        <div class="form-group">
+            <label for="user_confpass">Confirm password</label>
+            <input type="password" class="form-control" id="user_confpass"/>
+        </div>
+        <div class="form-group">
+            <label for="user_pic">Your picture</label>
+            <input type="file" class="form-control" id="user_pic"/>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="email_offers">Receive email offers
+            </label>
+        </div>
+    </form>
+
+    <h2>
+        <small>Horizontal form</small>
+    </h2>
+    <p>User .form-horizontal class along with .form-group make form behave like grid without needing .row class.</p>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="user_name2" class="control-label col-sm-2">Full name</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="user_name2" placeholder="your full name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user_email2" class="control-label col-sm-2">Email address</label>
+
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="user_email2" placeholder="email address"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user_pass2" class="control-label col-sm-2">Password</label>
+
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="user_pass2"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user_confpass2" class="control-label col-sm-2">Confirm password</label>
+
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="user_confpass2"/>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label for="user_pic2" class="control-label col-sm-2">Your picture</label>
+
+            <div class="col-sm-10 ">
+                <input type="file" class="form-control-static" id="user_pic2"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="email_offers2">Receive email offers
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <h2>
+        <small>Other features</small>
+    </h2>
+    <p>Check boxes, inline checkboxes and radio buttons.</p>
+    <form>
+        <div class="form-group">
+            <label class="control-label">Checkboxes</label>
+            <div class="checkbox">
+                <label><input type="checkbox"> Check 1</label>
+            </div>
+            <div class="checkbox disabled">
+                <label><input type="checkbox"> Check 2</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Inline Checkboxes</label>
+            <div class="checkbox checkbox-inline">
+                <label><input type="checkbox"> Check 1</label>
+            </div>
+            <div class="checkbox checkbox-inline disabled">
+                <label><input type="checkbox"> Check 2</label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
